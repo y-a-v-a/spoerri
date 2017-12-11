@@ -12,8 +12,13 @@ function fnGetRandomUrl(sType, resolve, reject) {
     if (!aItems.length) {
       reject(new Error('Empty results'));
     }
-    const nRandomIndex = Math.round(Math.random() * (aItems.length - 1));
-    let sUrl = fnSanitizeUrl(aItems[nRandomIndex].link);
+
+    const rMime = /\.(jpg|png|gif|bmp)$/;
+    let sUrl = '';
+    do {
+      const nRandomIndex = Math.round(Math.random() * (aItems.length - 1));
+      sUrl = fnSanitizeUrl(aItems[nRandomIndex].link);
+    } while (!rMime.test(sUrl));
 
     resolve(sUrl);
   }).catch((error) => {

@@ -20,7 +20,7 @@ function run(oKeywords) {
     const sKeyword = getRandomKeyword(aKeywords);
 
     fetch(sRandomKey, sKeyword);
-  }, 60 * 1000);
+  }, 20 * 1000);
 }
 
 function getRandomObjectKey(oSource) {
