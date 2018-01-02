@@ -1,7 +1,7 @@
 const fs = require('fs');
-const imageFetch = require('./image-fetch');
-const fetchRunner = require('./fetch-runner');
-const imageUrl = require('./image-url');
+const imageFetch = require('./lib/image-fetch');
+const fetchRunner = require('./lib/fetch-runner');
+const imageUrl = require('./lib/image-url');
 const gd = require('node-gd');
 const debug = require('debug')('app');
 
@@ -57,19 +57,20 @@ function createTable() {
     })
 
     Promise.all(pImagesFetched).then((aImages) => {
-      const gdCloth = aImages.shift();
+      const gdClothImage = aImages.shift();
       const nTotal = aImages.length
       const nGridsize = nTotal % 2 === 0 ? nTotal / 2 :((nTotal * 2) + 2) / 4;
       const nResultWidth = 250 * nGridsize;
 
-      let img = gd.createTrueColorSync(nResultWidth, 500);
-      gdCloth.copyResized(img, 0, 0, 0, 0, nResultWidth, 500, gdCloth.width, gdCloth.height);
+      let gdTargetImage = gd.createTrueColorSync(nResultWidth, 500);
+      gdClothImage.copyResized(gdTargetImage, 0, 0, 0, 0, nResultWidth, 500, gdClothImage.width, gdClothImage.height);
 
       aImages.forEach((gdImage, nIndex) => {
         gdImage.alphaBlending(1);
         const nColor = gdImage.getPixel(10, 10);
         const nColor2 = gd.trueColor(255, 0, 0);
         const nThreshold = Math.random() * 3;
+
         gdImage.colorReplaceThreshold(nColor, nColor2, nThreshold);
         gdImage.colorTransparent(nColor2);
 
@@ -82,16 +83,16 @@ function createTable() {
         if (nIndex <= Math.ceil(nGridsize / 2)) {
           gdImage.flipVertical();
         }
-        gdImage.copyResized(img, x, y, 0, 0, dx, dy, gdImage.width, gdImage.height);
+        gdImage.copyResized(gdTargetImage, x, y, 0, 0, dx, dy, gdImage.width, gdImage.height);
       });
 
-      img.saveJpeg(`./tmp/result${Date.now()}.jpg`, Math.round(Math.random() * 100), (error) => {
+      gdTargetImage.saveJpeg(`./tmp/result${Date.now()}.jpg`, Math.round(Math.random() * 100), (error) => {
         if (error) {
           console.log(error);
         }
         debug('Stored newly created table!');
       });
-      img.destroy();
+      gdTargetImage.destroy();
 
       aImages.forEach(gdImage => gdImage.destroy());
     }).catch((message) => {
