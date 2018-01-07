@@ -59,7 +59,7 @@ function createTable() {
     Promise.all(pImagesFetched).then((aImages) => {
       const gdClothImage = aImages.shift();
       const nTotal = aImages.length
-      const nGridsize = nTotal % 2 === 0 ? nTotal / 2 :((nTotal * 2) + 2) / 4;
+      const nGridsize = nTotal % 2 === 0 ? nTotal / 2 : ((nTotal * 2) + 2) / 4;
       const nResultWidth = 250 * nGridsize;
 
       let gdTargetImage = gd.createTrueColorSync(nResultWidth, 500);
@@ -98,7 +98,10 @@ function createTable() {
     }).catch((message) => {
       debug('Error %s', message);
     });
-  });
+  }).catch((message) => {
+    debug('Error %s', message);
+  })
 }
 
 setInterval(createTable, 20 * 1000);
+createTable();
