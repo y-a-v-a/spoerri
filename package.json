@@ -2,7 +2,7 @@
   "name": "spoerri",
   "version": "0.0.1",
   "description": "Spoerrie meets Google",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "mkdir -m 777 -p cache && mkdir -m 777 -p tmp && touch key.js"
@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "glob": "^7.1.2",
     "node-gd": "^1.5.0"
   }
 }
