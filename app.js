@@ -8,9 +8,9 @@ const express = require('express');
 const app = express();
 
 const oSearchKeywords = require('./keywords');
-// fetchRunner.run(oSearchKeywords);
+fetchRunner.run(oSearchKeywords);
 
-// spoerriRunner.run();
+spoerriRunner.run();
 
 app.get('/spoerri.jpg', (req, res, next) => {
   const files = glob('./tmp/**.jpg', {}, (error, files) => {

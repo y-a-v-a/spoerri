@@ -1,6 +1,10 @@
 # Spoerri
 
-Will probably be visible on http://www.bij-ons-aan-tafel.nl any time soon
+Will probably be visible on http://www.bij-ons-aan-tafel.nl any time soon.
+
+Tableau Piège - Snare Picture
+
+A "Snare Picture" online results in a "Web Snare"
 
 
 ## License
