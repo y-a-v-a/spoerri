@@ -18,7 +18,7 @@ app.get('/spoerri.jpg', (req, res, next) => {
       throw error;
     }
 
-    const randomIndex = Math.round(Math.random() * files.length);
+    const randomIndex = Math.floor(Math.random() * files.length);
     const fileName = files[randomIndex];
     debug(fileName);
 
