@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <title>webspoerri • ax710 • y-a-v-a</title>
+  <link rel="stylesheet" href="/style.css">
+  <!--
+    Welcome to the source of webspoerri.
+
+    Webspoerri retrieves images from a Google Custom Search Engine of
+    table cloth patterns and finished dinner plates. These are combined
+    into new images using a NodeJS app.
+
+    (c) 2018 ax710.org, y-a-v-a.org
+  -->
+</head>
+<body>
+  <div id="wall">
+    <img id="spoerri-table" src="/spoerri.jpg" alt="">
+    <div class="legend">webspoerri • ax710.org • y-a-v-a.org • 2018</div>
+  </div>
+  <script>
+    (function() {
+      const spoerriTable = document.getElementById('spoerri-table');
+
+      function refresh() {
+        spoerriTable.setAttribute('src', '/spoerri.jpg?d=' + Date.now());
+      }
+
+      window.setInterval(refresh, 17 * 1000);
+    }());
+  </script>
+</body>
+</html>

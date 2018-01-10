@@ -8,9 +8,9 @@ const express = require('express');
 const app = express();
 
 const oSearchKeywords = require('./keywords');
-fetchRunner.run(oSearchKeywords);
+// fetchRunner.run(oSearchKeywords);
 
-spoerriRunner.run();
+// spoerriRunner.run();
 
 app.get('/spoerri.jpg', (req, res, next) => {
   const files = glob('./tmp/**.jpg', {}, (error, files) => {
@@ -37,7 +37,7 @@ app.get('/spoerri.jpg', (req, res, next) => {
 });
 
 app.get('/favicon.png', (req, res, next) => {
-  res.sendFile('./favicon.png', {
+  res.sendFile('./public/favicon.png', {
     root: __dirname,
     dotfiles: 'deny',
     headers: {
@@ -48,8 +48,32 @@ app.get('/favicon.png', (req, res, next) => {
   });
 });
 
+app.get('/robots.txt', (req, res, next) => {
+  res.sendFile('./public/robots.txt', {
+    root: __dirname,
+    dotfiles: 'deny',
+    headers: {
+      'Content-Type': 'text/plain'
+    }
+  }, (error) => {
+    if (error) next(error);
+  });
+});
+
+app.get('/style.css', (req, res, next) => {
+  res.sendFile('./public/style.css', {
+    root: __dirname,
+    dotfiles: 'deny',
+    headers: {
+      'Content-Type': 'text/css'
+    }
+  }, (error) => {
+    if (error) next(error);
+  });
+});
+
 app.get('/', (req, res, next) => {
-  res.sendFile('./index.html', {
+  res.sendFile('./public/index.html', {
     root: __dirname,
     dotfiles: 'deny',
     headers: {
