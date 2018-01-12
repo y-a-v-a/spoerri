@@ -22,6 +22,10 @@ app.get('/spoerri.jpg', (req, res, next) => {
     const fileName = files[randomIndex];
     debug(fileName);
 
+    if (!fileName) {
+      return next();
+    }
+
     res.sendFile(fileName, {
       root: __dirname,
       dotfiles: 'deny',
