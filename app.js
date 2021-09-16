@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const fetchRunner = require('./lib/fetch-runner');
-// const spoerriRunner = require('./lib/spoerri-runner');
+// const spoerriRunner = require('./lib/spoerri-runner'); // @todo
 const getRandomResult = require('./lib/result-fetch');
 
 const debug = require('debug')('spoerri:app');

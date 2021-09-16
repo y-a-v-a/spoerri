@@ -4,7 +4,7 @@
   "description": "Spoerri meets Google",
   "main": "app.js",
   "scripts": {
-    "start": "DEBUG=spoerri:* node ./app.js"
+    "start": "DEBUG_COLORS=false DEBUG=spoerri:* node ./app.js"
   },
   "author": "",
   "license": "ISC",
