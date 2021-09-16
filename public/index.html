@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <title>Tableau Piège En Ligne • ax710 • y-a-v-a</title>
-  <link rel="stylesheet" href="/style.css">
-  <!--
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <title>Tableau Piège En Ligne • ax710 • y-a-v-a</title>
+    <link rel="stylesheet" href="/style.css" />
+    <!--
     Welcome to the source of webspoerri.
 
     Webspoerri retrieves images from a Google Custom Search Engine of
@@ -13,40 +13,56 @@
     into new images using a NodeJS app.
 
     (c) 2018 ax710.org, y-a-v-a.org
-  -->
-</head>
-<body>
-  <div id="wall">
-    <img id="tableau" src="/spoerri.jpg" alt="">
-    <div class="legend">
-      <h1>Tableau Piège En Ligne • <a href="http://www.ax710.org">ax710.org</a> • <a href="http://www.y-a-v-a.org">y-a-v-a.org</a> • deux mille dix-huit</h1>
-      <h2>
-        Ce(tte) œuvre est mise à disposition selon les termes de la<br><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.
-      </h2>
-      <h3>
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-      </h3>
+  --></head>
+  <body>
+    <div id="wall">
+      <img id="tableau" src="/spoerri.jpg" alt="" />
+      <div class="legend">
+        <h1>
+          Tableau Piège En Ligne •
+          <a href="http://www.ax710.org">ax710.org</a> •
+          <a href="http://www.y-a-v-a.org">y-a-v-a.org</a> • deux mille dix-huit
+        </h1>
+        <h2>
+          Ce(tte) œuvre est mise à disposition selon les termes de la<br /><a
+            rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+            >Licence Creative Commons Attribution - Partage dans les Mêmes
+            Conditions 4.0 International</a
+          >.
+        </h2>
+        <h3>
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+            ><img
+              alt="Licence Creative Commons"
+              src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+          /></a>
+        </h3>
+      </div>
     </div>
-  </div>
-  <script>
-    (function() {
-      const spoerriTable = document.getElementById('tableau');
+    <script>
+      (function () {
+        const spoerriTable = document.getElementById('tableau');
 
-      function refresh() {
-        spoerriTable.setAttribute('src', '/spoerri.jpg?d=' + Date.now());
+        function refresh() {
+          spoerriTable.setAttribute('src', '/spoerri.jpg?d=' + Date.now());
+        }
+
+        window.setInterval(refresh, 17 * 1000);
+      })();
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-16179947-35"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
+      gtag('js', new Date());
 
-      window.setInterval(refresh, 17 * 1000);
-    }());
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-16179947-35"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-16179947-35');
-  </script>
-
-</body>
+      gtag('config', 'UA-16179947-35');
+    </script>
+  </body>
 </html>
