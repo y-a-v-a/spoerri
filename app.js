@@ -1,12 +1,11 @@
 require('dotenv').config();
+const debug = require('debug')('spoerri:app');
+const express = require('express');
 
 const fetchRunner = require('./lib/fetch-runner');
-const spoerriRunner = require('./lib/spoerri-runner'); // @todo
+const spoerriRunner = require('./lib/spoerri-runner');
 const getRandomResult = require('./lib/result-fetch');
 
-const debug = require('debug')('spoerri:app');
-
-const express = require('express');
 const app = express();
 
 const oSearchKeywords = require('./keywords');
@@ -82,6 +81,10 @@ app.get('/', (req, res, next) => {
   );
 });
 
-app.listen(3000, () =>
-  debug('Example app listening on port http://localhost:3000 !')
+app.get('*', function (req, res) {
+  res.send('Not found', 404);
+});
+
+app.listen(8080, () =>
+  debug('Spoerri app listening on port http://localhost:8080 !')
 );

@@ -1,6 +1,6 @@
 {
   "name": "spoerri",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Spoerri meets Google",
   "main": "app.js",
   "scripts": {
