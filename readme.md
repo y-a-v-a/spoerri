@@ -8,7 +8,7 @@ A "Snare Picture" online results in a "Web Snare"
 
 ## License
 
-GNU GPL v3, copyright 2017-2018 ax710.org && y-a-v-a.org
+GNU GPL v3, copyright 2017-2021 ax710.org && y-a-v-a.org
 
 ```javascript
 app.get('/spoerri2.jpg', (req, res, next) => {

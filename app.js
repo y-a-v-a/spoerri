@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const fetchRunner = require('./lib/fetch-runner');
-// const spoerriRunner = require('./lib/spoerri-runner'); // @todo
+const spoerriRunner = require('./lib/spoerri-runner'); // @todo
 const getRandomResult = require('./lib/result-fetch');
 
 const debug = require('debug')('spoerri:app');
@@ -12,7 +12,7 @@ const app = express();
 const oSearchKeywords = require('./keywords');
 fetchRunner.run(oSearchKeywords);
 
-// spoerriRunner.run();
+spoerriRunner.run();
 
 app.get('/spoerri.jpg', async (req, res, next) => {
   return (await getRandomResult()).pipe(res);
@@ -83,5 +83,5 @@ app.get('/', (req, res, next) => {
 });
 
 app.listen(3000, () =>
-  console.log('Example app listening on port http://localhost:3000 !')
+  debug('Example app listening on port http://localhost:3000 !')
 );
