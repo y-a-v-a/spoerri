@@ -7,6 +7,7 @@ const spoerriRunner = require('./lib/spoerri-runner');
 const getRandomResult = require('./lib/result-fetch');
 
 const app = express();
+app.disable('x-powered-by');
 
 const oSearchKeywords = require('./keywords');
 fetchRunner.run(oSearchKeywords);
@@ -82,7 +83,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('*', function (req, res) {
-  res.send('Not found', 404);
+  res.status(404).send('Not found');
 });
 
 app.listen(8080, () =>
