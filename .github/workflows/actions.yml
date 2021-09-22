@@ -8,6 +8,8 @@ jobs:
     name: Main job
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: aws-actions/amazon-ecr-login
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
